@@ -3,7 +3,7 @@ export const siteConfig = {
   description: "Smart Finance AI helps you track expenses in real time with a focused, privacy-first dashboard.",
   url: "https://smartfinanceai.com",
   ogImage: "/opengraph-image",
-  contactEmail: "hello@smartfinanceai.com"
+  contactEmail: "bharathmalle12@gmail.com"
 } as const;
 
 export const navLinks = [{ label: "Tracker", href: "#tracker" }] as const;

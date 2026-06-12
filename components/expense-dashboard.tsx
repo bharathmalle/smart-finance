@@ -67,6 +67,21 @@ export function ExpenseDashboard() {
             </div>
           </div>
         </div>
+
+        <div className="mt-10 border-t border-white/10 pt-6 text-sm text-slate-400">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>Contact: {typeof window === "undefined" ? "bharathmalle12@gmail.com" : "bharathmalle12@gmail.com"}</p>
+            <a
+              href="https://www.linkedin.com/in/bharath-malle-a10260241/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+            >
+              LinkedIn Profile
+            </a>
+          </div>
+          <p className="mt-4 text-xs text-slate-500">Copyright (c) 2026 Bharath Malle. All rights reserved.</p>
+        </div>
       </section>
     </>
   );
