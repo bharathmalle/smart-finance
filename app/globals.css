@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#f6f8f4] text-slate-900 antialiased dark:bg-[#07120f] dark:text-slate-100;
+}
+
+::selection {
+  @apply bg-brand-500 text-white;
+}
+
+.glass {
+  @apply border border-white/30 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+}
+
+.noise {
+  background-image:
+    linear-gradient(to right, rgba(26, 49, 44, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 49, 44, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.dark .noise {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-gap {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand-900 dark:text-brand-100;
+  }
+
+  .headline {
+    @apply text-balance text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-white;
+  }
+
+  .subheadline {
+    @apply max-w-2xl text-pretty text-lg leading-8 text-slate-600 dark:text-slate-300;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-900 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-500/30 hover:text-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent dark:border-white/10 dark:bg-white/5 dark:text-white;
+  }
+
+  .card {
+    @apply rounded-[28px] border border-white/60 bg-white/80 shadow-[0_20px_80px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-none;
+  }
+
+  .card-inner {
+    @apply p-6 sm:p-8;
+  }
+}
