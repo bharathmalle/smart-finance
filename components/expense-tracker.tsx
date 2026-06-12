@@ -61,8 +61,12 @@ export function ExpenseTrackerSection() {
   }, [expenses, search, selectedMonth]);
 
   const monthOptions = useMemo(() => {
-    const keys = new Set(expenses.map((expense) => getMonthKey(expense.date)));
-    keys.add(selectedMonth);
+    const currentYear = new Date().getFullYear();
+    const allMonths = Array.from({ length: 12 }, (_, index) => {
+      const month = String(index + 1).padStart(2, "0");
+      return `${currentYear}-${month}`;
+    });
+    const keys = new Set([...allMonths, ...expenses.map((expense) => getMonthKey(expense.date)), selectedMonth]);
     return Array.from(keys).sort((a, b) => b.localeCompare(a));
   }, [expenses, selectedMonth]);
 
@@ -184,16 +188,16 @@ export function ExpenseTrackerSection() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="expense-category" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">
-                      Category
+                      Categories
                     </label>
                     <select
                       id="expense-category"
                       value={form.category}
                       onChange={(event) => setForm((current) => ({ ...current, category: event.target.value as ExpenseCategory }))}
-                      className="h-12 w-full rounded-full border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition focus:border-brand-500"
+                      className="h-12 w-full rounded-full border border-white/10 bg-white px-4 text-sm text-black outline-none transition focus:border-brand-500"
                     >
                       {expenseCategories.map((category) => (
-                        <option key={category} value={category}>
+                        <option key={category} value={category} className="text-black">
                           {category}
                         </option>
                       ))}
